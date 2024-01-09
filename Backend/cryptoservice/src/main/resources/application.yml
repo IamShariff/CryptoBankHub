@@ -1,0 +1,51 @@
+server:
+  port: 1013
+
+spring:
+  profiles:
+    active: development
+  application:
+    name: CRYPTO-SERVICE
+     
+   #DataSource configuration for database connection
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/cbh-crypto
+    username: postgres
+    password: 110062
+
+# JPA (Java Persistence API) configuration common
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update   
+      
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka 
+---
+
+spring:
+  config:
+    activate:
+      on-profile: development
+         
+  jpa:
+    show-sql: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: production
+
+  jpa:
+    show-sql: false
