@@ -1,0 +1,31 @@
+server:
+  port: 1014
+
+spring:
+  application:
+    name: KEYCLOAK-SERVICE
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+com:
+  keycloak:
+    server:
+      url: http://localhost:8080
+    master:
+      realm: master
+      clientId: admin-cli
+    admin:
+      username: Sharif
+      password: 110062
+    user:
+      realm: Security
+    config:
+      clientId: secure-spring
+      secret: LBpmX5MBbbAGUonaod79NYun7oJVGevq
